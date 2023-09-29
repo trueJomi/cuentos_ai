@@ -1,0 +1,1 @@
+from instructure.firebase_repository.instrcuture_story import save_story
