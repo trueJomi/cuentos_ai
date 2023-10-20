@@ -9,15 +9,15 @@ gpt_base = ChatGpt()
 
 
 
-def create_cuento_with_pomp(entrada:str, id_token:str)-> StoryModel:
-    # decoded_token = verify_id_token(id_token)
-    # uid = decoded_token['uid']
+async def create_cuento_with_pomp(entrada:str, id_token:str)-> StoryModel:
+    decoded_token = verify_id_token(id_token)
+    uid = decoded_token['uid']
     context = copy(gpt_base)
-    text_raw= context.hadleMsgChat(f'promp = {entrada}, ahora escribe el texto')
+    text_raw= context.hadleMsgChat(f'prompt = {entrada}, respondeme con el texto con este promp')
     tittle = decript_text_tittle(text_raw)
     list_introduction = decript_text_introduccion(text_raw)
     list_middle = decript_text_middle(text_raw)
     list_end = decript_text_end(text_raw)
     data = StoryModel(tittle,list_introduction,list_middle,list_end)
-    # await save_story(data,uid)
+    await save_story(data,uid)
     return data  

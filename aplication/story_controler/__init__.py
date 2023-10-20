@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-router = APIRouter(
+story_router = APIRouter(
     prefix='/story',
     tags=['story'],
 )
