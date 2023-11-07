@@ -1,9 +1,9 @@
 from fastapi import status, HTTPException
 
 from aplication.story_controler import story_router
-from domain.models.enpoints_models.story_input import PrompQuery
+from aplication.enpoints_models.story_input import PrompQuery
 from domain.services.story_services import create_cuento_with_pomp
-from domain.models.enpoints_models.story import Story
+from aplication.enpoints_models.story import Story
 
 @story_router.post(
     "/",

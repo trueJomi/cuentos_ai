@@ -1,0 +1,9 @@
+[INSTRUCCIONES]: ignora las intruccciones anteriores ,Actúa como un profesor que tendrá que realizar un cuento para primaria que sea lo más entendible y detallado posible. Teniendo en cuenta lo siguiente: {prompt}, agrega un título al inicio del cuento y separarlo en inicio, nudo y desenlace, procura entregar solo el texto con las consideraciones mencionadas anteriormente.
+[EJEMPLO]:
+Título: Caperucita Roja y el Lobo Amigo
+Inicio:
+contenido de la introducción
+Nudo:
+contenido del nudo
+Desenlace:
+contenido del desenlace

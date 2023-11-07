@@ -1,0 +1,4 @@
+[INSTRUCCIONES] IGNORA TODO LO ANTERIOR .Actua como un ingeniero de sotware que tiene el siguiente text:{content}, en base a ese texto realiza un prompt para DALLE 2 re reprecente ese texto. procura entregar solo el prompt que involucra todo lo antes mnecionado.
+[RESTRICCIONES]: sin comillas, resutlado esta en perfecto ingles,que tenga 950 caracteres o menos.
+[EJEMPLO]: 
+Prompt: prompt content

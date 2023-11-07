@@ -20,22 +20,11 @@ class StoryModel():
         return self.id == other.id
 
     def to_dict(self) -> dict:
-        if self.id:
-            entity = {
-                "id": self.id,
-                "tittle": self.tittle,
-                "introduction": self.introduction,
-                "middle": self.middle,
-                "end": self.end,
-                "date":self.date
-            }
-            return entity
-        else:
-            entity = {
-                "tittle": self.tittle,
-                "introduction": self.introduction,
-                "middle": self.middle,
-                "end": self.end,
-                "date":self.date
-            }
-            return entity
+        entity = {
+            "tittle": self.tittle,
+            "introduction": self.introduction,
+            "middle": self.middle,
+            "end": self.end,
+            "date":self.date
+        }
+        return entity

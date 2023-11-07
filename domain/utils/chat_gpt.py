@@ -5,14 +5,13 @@ load_dotenv()
 
 
 class ChatGpt:
-    __queue:list[dict]=[]
     
-    def __init__(self):
+    def __init__(self, instruccions:str):
         import openai
         self.__openai = openai
         self.__openai.api_key= os.getenv("OPENAI_API_KEY")
-        with open( "./domain/static/PROM-BASE.txt", mode='r', encoding='utf-8') as file:
-            self.__queue.append({"role": "system", "content": file.read()})
+        with open( f"./domain/static/{instruccions}.txt", mode='r', encoding='utf-8') as file:
+            self.__queue=[{"role": "system", "content": file.read()}]
         
     @property
     def queue(self):

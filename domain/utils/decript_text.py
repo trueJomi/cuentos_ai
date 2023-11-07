@@ -34,3 +34,14 @@ def decript_text_tittle(text:str) -> str:
         return tittle
     else:
         raise Exception(text)
+
+def concat_text_array(text_array:list[str]) -> str:
+    text = ""
+    for text_line in text_array:
+        text = text + text_line + " "
+    return text
+
+def decript_prompt( text:str):
+    parts=text.split("Prompt:")
+    part_prompt= parts[1]
+    return part_prompt
