@@ -10,7 +10,7 @@ class StoryModel():
       id:str | None = None
     ):
         self.id = id
-        self.tittle = tittle
+        self.title = tittle
         self.introduction = introduction
         self.middle = middle
         self.end = end
@@ -21,7 +21,7 @@ class StoryModel():
 
     def to_dict(self) -> dict:
         entity = {
-            "tittle": self.tittle,
+            "title": self.title,
             "introduction": self.introduction,
             "middle": self.middle,
             "end": self.end,

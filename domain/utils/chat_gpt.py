@@ -21,7 +21,7 @@ class ChatGpt:
         self.__queue.append(
             {"role": "user", "content": message},
         )
-        chatResponse = self.__openai.ChatCompletion.create(
+        chatResponse = self.__openai.chat.completions.create(
             model="gpt-3.5-turbo-16k",
             messages=self.__queue,
         )

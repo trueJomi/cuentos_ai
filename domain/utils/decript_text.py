@@ -27,11 +27,11 @@ def decript_text_end(text:str) -> list[str]:
     else:
         raise Exception(text)
 
-def decript_text_tittle(text:str) -> str:
+def decript_text_title(text:str) -> str:
     tittle_raw = re.search(r'Título:\s*(.*)', text)
     if tittle_raw :
-        tittle = tittle_raw.group(1)
-        return tittle
+        title = tittle_raw.group(1)
+        return title
     else:
         raise Exception(text)
 
@@ -43,5 +43,6 @@ def concat_text_array(text_array:list[str]) -> str:
 
 def decript_prompt( text:str):
     parts=text.split("Prompt:")
+    # print(text)
     part_prompt= parts[1]
     return part_prompt

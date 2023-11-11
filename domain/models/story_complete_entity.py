@@ -3,7 +3,7 @@ from domain.models.image_entity import ImageModel
 
 class StoryCompleteModel(StoryModel):
     def __init__(self, init_data:StoryModel, image_1:ImageModel, iamge_2:ImageModel, iamge_3:ImageModel):
-        super().__init__(init_data.tittle,init_data.introduction,init_data.middle,init_data.end,init_data.id)
+        super().__init__(init_data.title,init_data.introduction,init_data.middle,init_data.end,init_data.id)
         self.images =  {
             "introduction":image_1.to_dict(),
             "middle":iamge_2.to_dict(),
@@ -12,7 +12,7 @@ class StoryCompleteModel(StoryModel):
     
     def to_dict(self) -> dict:
         entity = {
-            "tittle": self.tittle,
+            "title": self.title,
             "introduction": self.introduction,
             "middle": self.middle,
             "end": self.end,
