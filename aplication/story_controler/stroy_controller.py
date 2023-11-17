@@ -5,6 +5,7 @@ from aplication.enpoints_models.story_input import PrompQuery
 from domain.services.story_services import create_story_service, create_story_complete_service
 from aplication.enpoints_models.story import Story
 from aplication.enpoints_models.story_complete_result import StoryComplete
+from domain.services.firebase_validate import validate_id_token
 
 @story_router.post(
     "/",
@@ -12,15 +13,15 @@ from aplication.enpoints_models.story_complete_result import StoryComplete
     response_model=Story
     )
 async def create_story_controller(promp:PrompQuery):
-    # try:
-    #     validate_id_token(promp.id_token)
-    # except ValueError as e :
-    #     raise HTTPException(
-    #         status_code= status.HTTP_401_UNAUTHORIZED,
-    #         detail=f"Error: Unauthorized API"
-    #     )
     try:
-        data = await create_story_service(promp.prompt)
+        uid = validate_id_token(promp.id_token)
+    except Exception as e :
+        raise HTTPException(
+            status_code= status.HTTP_401_UNAUTHORIZED,
+            detail=f"Error: Unauthorized API"
+        )
+    try:
+        data = await create_story_service(promp.prompt, uid)
         dict_data = data.to_dict()
         dict_data["id"] = data.id
         return dict_data
@@ -36,15 +37,15 @@ async def create_story_controller(promp:PrompQuery):
         response_model = StoryComplete
     )
 async def create_story_complete_controller(promp:PrompQuery):
-    # try:
-    #     validate_id_token(promp.id_token)
-    # except ValueError as e :
-    #     raise HTTPException(
-    #         status_code= status.HTTP_401_UNAUTHORIZED,
-    #         detail=f"Error: Unauthorized API"
-    #     )
     try:
-        data = await create_story_complete_service(promp.prompt)
+        uid = validate_id_token(promp.id_token)
+    except Exception as e :
+        raise HTTPException(
+            status_code= status.HTTP_401_UNAUTHORIZED,
+            detail=f"Error: Unauthorized API"
+        )
+    try:
+        data = await create_story_complete_service(promp.prompt, uid)
         dict_data = data.to_dict()
         dict_data["id"] = data.id
         return dict_data

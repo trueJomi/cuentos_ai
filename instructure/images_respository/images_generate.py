@@ -4,10 +4,12 @@ from domain.models.image_entity_send import SendQueryIamgeEntity
 from domain.models.image_entity_input import SendImageInputText
 from domain.utils.dalle_image import Dalle2
 from domain.models.image_url_input import SendUrlInput
+from domain.models.image_entity import ImageModel
+from domain.models.image3_entity import Image3Model
 
 API_URL = os.getenv("URL_API")
 
-def send_data_image_1(message_api:SendQueryIamgeEntity):
+def send_data_image_1(message_api:SendQueryIamgeEntity) -> ImageModel:
     response =requests.post(
         f"{API_URL}/getImage",
         headers={
@@ -17,9 +19,10 @@ def send_data_image_1(message_api:SendQueryIamgeEntity):
     if (response.status_code >= 400):
         raise Exception(response.json()["detail"])
     json_image = response.json()
-    return json_image
+    image = ImageModel(**json_image)
+    return image
 
-def send_data_image_3(message_api:SendImageInputText):
+def send_data_image_3(message_api:SendImageInputText) -> Image3Model:
     response =requests.post(
         f"{API_URL}/get3Images",
         headers={
@@ -29,7 +32,17 @@ def send_data_image_3(message_api:SendImageInputText):
     if (response.status_code >= 400):
         raise Exception(response.json()["detail"])
     json_image = response.json()
-    return json_image
+    introducton_image =ImageModel(
+        **json_image["introduction"]
+    )
+    middle_image = ImageModel(
+        **json_image["middle"]
+        )
+    end_image = ImageModel(
+        **json_image["end"]
+    )
+    images = Image3Model(introducton_image,middle_image,end_image)
+    return images
     
 def generate_dalle_image(prompt:str):
     image_dalle = Dalle2()

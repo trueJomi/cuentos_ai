@@ -1,5 +1,6 @@
 def test_service_3_resturn():
     return {
+      "id": "1",
   "title": "Caperucita Roja y el Lobo Amigo",
   "introduction": [
     "Había una vez una niña llamada Caperucita Roja que vivía en una pequeña casa en el bosque. Caperucita Roja era una niña muy curiosa y siempre estaba ansiosa por explorar el mundo que la rodeaba. Un día, su madre llamó a Caperucita Roja y le dijo: \"Querida, tu abuelita está enferma y me gustaría que llevaras esta cesta de comida a su casa\". Caperucita Roja se emocionó mucho y prometió a su madre que llevaría la comida a su abuelita sin demora."
@@ -13,6 +14,7 @@ def test_service_3_resturn():
   ],
   "images": {
     "introduction": {
+      "url": "https://storage.googleapis.com/cuentos-ai.appspot.com/images/d47b7c27-5311-4a1b-8f77-19dca25d5e5f.png",
       "id": "e98632c2-be46-4fe6-add4-d7665cf926af",
       "path_storage": "images/e98632c2-be46-4fe6-add4-d7665cf926af.png",
       "params": {
@@ -72,6 +74,7 @@ def test_service_3_resturn():
       }
     },
     "middle": {
+      "url": "https://storage.googleapis.com/cuentos-ai.appspot.com/images/43386a9a-9e60-4164-9024-2ca0fc3fa574.png",
       "id": "b7622d0c-fc09-4ad7-99e7-e1536c9b1fa4",
       "path_storage": "images/b7622d0c-fc09-4ad7-99e7-e1536c9b1fa4.png",
       "params": {
@@ -131,6 +134,7 @@ def test_service_3_resturn():
       }
     },
     "end": {
+      "url": "https://storage.googleapis.com/cuentos-ai.appspot.com/images/fc500915-54ae-4cb7-b56b-1fbfd3c2e4b5.png",
       "id": "747ffd8f-5a5d-4d2b-a8cb-8263692a6a9b",
       "path_storage": "images/747ffd8f-5a5d-4d2b-a8cb-8263692a6a9b.png",
       "params": {

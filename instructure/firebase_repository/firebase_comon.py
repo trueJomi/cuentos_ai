@@ -1,9 +1,5 @@
-import firebase_admin
-from firebase_admin import credentials,firestore_async
+from instructure.config.config import db
 
-cred_firebase = credentials.Certificate("./domain/static/credentials_firebase.json")
-fire = firebase_admin.initialize_app(cred_firebase)
-db =  firestore_async.client()
 
 async def save_data(id:str, path:str , data: dict, uid:str):
     new_data = await  db.collection(f'User/{id}/{path}').document(uid).set(data)

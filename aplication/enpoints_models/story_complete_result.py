@@ -10,17 +10,20 @@ class StoryComplete(BaseModel):
   images: dict = Field({
         "introduction":{
             "id": "id de imagen",
+            "path_storage": "direccion del storage",
             "url": "url de la imagen",
             "params": "paramtros que tiene l imagen"
         },
         "middle":{
             "id": "id de imagen",
             "url": "url de la imagen",
+            "path_storage": "direccion del storage",
             "params": "paramtros que tiene l imagen"
         },
         "end":{
             "id": "id de imagen",
             "url": "url de la imagen",
+            "path_storage": "direccion del storage",
             "params": "paramtros que tiene l imagen"
         }
   })

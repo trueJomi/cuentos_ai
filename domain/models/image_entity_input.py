@@ -6,7 +6,7 @@ load_dotenv()
 TOKEN_API = os.getenv("TOKEN_API")
 
 class SendImageInputText:
-    def __init__(self, init,middle, final):
+    def __init__(self, init: str, middle:str , final: str):
         self.init = init
         self.middle = middle
         self.final = final
