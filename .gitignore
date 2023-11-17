@@ -170,3 +170,5 @@ cython_debug/
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+domain/static/credentials_firebase1.json
