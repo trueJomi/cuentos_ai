@@ -1,7 +1,5 @@
 from domain.models.image_entity_send import SendQueryIamgeEntity
 from instructure.images_respository.images_generate import send_data_image_1, send_data_image_3
-from domain.models.image_entity import ImageModel
-from instructure.images_respository.images_url import get_url
 from domain.models.image_entity_input import SendImageInputText
 from instructure.firebase_repository.instrcuture_story import get_story
 from concurrent.futures import ThreadPoolExecutor

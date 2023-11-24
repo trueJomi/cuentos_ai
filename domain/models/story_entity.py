@@ -4,40 +4,36 @@ from domain.models.image3_entity import Image3Model
 class StoryModel():
     def __init__(
       self,
-      tittle: str,
+      title: str,
       introduction: list[str],
       middle: list[str],
       end: list[str],
       id:str,
       images:Image3Model=None,
+      date:datetime=None
     ):
         self.id = id
-        self.title = tittle
+        self.title = title
         self.introduction = introduction
         self.middle = middle
         self.end = end
-        self.date = datetime.now()
+        if date:
+            self.date = date
+        else:
+            self.date = datetime.now()
         self.images = images
 
     def __eq__(self, other:'StoryModel') -> bool:
         return self.id == other.id
 
     def to_dict(self) -> dict:
-        if self.images:
-            entity = {
-                "title": self.title,
-                "introduction": self.introduction,
-                "middle": self.middle,
-                "end": self.end,
-                "images": self.images.to_dict(),
-                "date":self.date
-            }
-        else:
-            entity = {
-                "title": self.title,
-                "introduction": self.introduction,
-                "middle": self.middle,
-                "end": self.end,
-                "date":self.date
-            }
+        entity = {
+            "title": self.title,
+            "introduction": self.introduction,
+            "middle": self.middle,
+            "end": self.end,
+            "date":self.date
+        }
+        if self.images is not None:
+            entity["images"]  = self.images.to_dict()
         return entity

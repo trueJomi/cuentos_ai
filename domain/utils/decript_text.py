@@ -27,7 +27,7 @@ def decript_text_end(text:str) -> list[str]:
     else:
         raise Exception(text)
 
-def decript_text_title(text:str) -> str:
+def decript_text_tittle(text:str) -> str:
     tittle_raw = re.search(r'Título:\s*(.*)', text)
     if tittle_raw :
         title = tittle_raw.group(1)
@@ -46,3 +46,16 @@ def decript_prompt( text:str):
     # print(text)
     part_prompt= parts[1]
     return part_prompt
+
+def decript_questions(text:str) -> list[dict]:
+    question_match= re.findall(r'- .*',text)
+    responses_match= re.findall(r'\* .*',text)
+    questions=[]
+    for quest, res in zip(question_match,responses_match):
+        temp_quest = quest.split("- ")[1]
+        temp_res = res.split("* ")[1]
+        questions.append({
+            "question":temp_quest,
+            "response":temp_res
+        })
+    return questions

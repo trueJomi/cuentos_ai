@@ -16,6 +16,7 @@ async def save_story_complete(data:StoryModel, id:str, uid:str):
 async def get_story(id:str, uid:str) -> StoryModel:
     data = await get_data(id,"Story",uid)
     story = StoryModel(**data)
+    story.images = None
     if(data["images"]):
         intro_image = ImageModel(**data["images"]["introduction"])
         middle_image = ImageModel(**data["images"]["middle"])

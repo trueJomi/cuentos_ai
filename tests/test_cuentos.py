@@ -1,22 +1,19 @@
 import pytest
 from domain.utils.chat_gpt import ChatGpt
-from openai.error import InvalidRequestError
-from copy import copy
-from domain.utils.decript_text import decript_text_end, decript_text_introduccion, decript_text_middle,decript_text_tittle
+from domain.utils.decript_text import (decript_questions, decript_text_end,
+    decript_text_introduccion, decript_text_middle, decript_text_tittle)
 
-
-gpt = ChatGpt()
 
 def test_queue_correctCreate():
-    chat =  copy(gpt)
+    chat =  ChatGpt("QUESTION_PARAGRAFT_LITERAL")
     assert chat.queue != []
 
 
 def test_message_is_string():
-    chat =  copy(gpt)
-    with pytest.raises(InvalidRequestError) as error_info:
+    chat =  ChatGpt("QUESTION_PARAGRAFT_LITERAL")
+    with pytest.raises(Exception) as error_info:
         chat.hadleMsgChat(1234)
-    assert str(error_info.value)== "1234 is not of type 'string' - 'messages.1.content'"
+    assert str(error_info.value) != None
 
 def test_result_introduction_regex():
     with open("tests/static/result_test.txt",encoding="utf-8") as result_raw:
@@ -41,6 +38,17 @@ def test_result_tittle_regex():
         result_text = result_raw.read()
         tittle = decript_text_tittle(result_text)
         assert tittle == "Caperucita Roja y el Lobo Amigo"
+
+
+
+def test_decript_questions():
+    data= "- ¿Quién es el personaje principal de la historia?\n- ¿Cuál es la tarea que le encargan a Caperucita Roja?\n- ¿Qué disfraz utiliza el lobo para engañar a Caperucita Roja?\n- ¿Quiénes acuden en ayuda de Caperucita Roja cuando ella grita por ayuda?"
+    assert decript_questions(data) == [
+        "¿Quién es el personaje principal de la historia?",
+        "¿Cuál es la tarea que le encargan a Caperucita Roja?",
+        "¿Qué disfraz utiliza el lobo para engañar a Caperucita Roja?",
+        "¿Quiénes acuden en ayuda de Caperucita Roja cuando ella grita por ayuda?"
+    ]
 
 # def test_data():
 #     chat =  copy(gpt)

@@ -2,11 +2,14 @@ from instructure.images_respository.images_url import get_url
 
 class ImageModel:
         
-    def __init__(self, id: str, path_storage: str, params: dict):
+    def __init__(self, id: str, path_storage: str, params: dict, url: str = None):
         self.id = id
         self.path_storage = path_storage
         self.params = params
-        self.url = get_url(id)
+        if url:
+            self.url = url
+        else:
+            self.url = get_url(id)
     
     def to_dict(self):
         return {

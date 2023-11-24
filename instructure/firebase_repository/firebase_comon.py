@@ -1,8 +1,13 @@
 from instructure.config.config import db
+import instructure.firebase_repository.firebase_comon
 
 
 async def save_data(id:str, path:str , data: dict, uid:str):
     new_data = await  db.collection(f'User/{id}/{path}').document(uid).set(data)
+    return new_data
+
+async def save_data_with_id(id:str, path:str , data: dict):
+    new_data = await  db.collection(f'User/{id}/{path}').add(data)
     return new_data
 
 async def update_data(id:str, path:str , data: dict, uid:str):

@@ -1,6 +1,6 @@
 from domain.utils.chat_gpt import ChatGpt
 from domain.repositorys import save_story
-from domain.utils.decript_text import decript_text_introduccion, decript_text_middle, decript_text_end, decript_text_title
+from domain.utils.decript_text import decript_text_introduccion, decript_text_middle, decript_text_end, decript_text_tittle
 from domain.models.story_entity import StoryModel
 from instructure.images_respository.images_generate import send_data_image_3
 from domain.repositorys import save_story_complete
@@ -13,7 +13,7 @@ import uuid
 def create_cuento_with_pompt(entrada:str)-> StoryModel:
     context = ChatGpt("PROMPT_CREATE_CUENTO")
     text_raw= context.hadleMsgChat(f'prompt = {entrada}, respondeme con el texto con este promp')
-    title = decript_text_title(text_raw)
+    title = decript_text_tittle(text_raw)
     list_introduction = decript_text_introduccion(text_raw)
     list_middle = decript_text_middle(text_raw)
     list_end = decript_text_end(text_raw)

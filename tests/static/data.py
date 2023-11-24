@@ -1,23 +1,9 @@
-def test_service_3_resturn():
-    return {
-      "id": "1",
-  "title": "Caperucita Roja y el Lobo Amigo",
-  "introduction": [
-    "Había una vez una niña llamada Caperucita Roja que vivía en una pequeña casa en el bosque. Caperucita Roja era una niña muy curiosa y siempre estaba ansiosa por explorar el mundo que la rodeaba. Un día, su madre llamó a Caperucita Roja y le dijo: \"Querida, tu abuelita está enferma y me gustaría que llevaras esta cesta de comida a su casa\". Caperucita Roja se emocionó mucho y prometió a su madre que llevaría la comida a su abuelita sin demora."
-  ],
-  "middle": [
-    "Caperucita Roja se puso su capa roja favorita y comenzó a caminar por el bosque hacia la casa de su abuelita. Mientras caminaba, Caperucita Roja se encontró con un lobo que parecía muy hambriento. El lobo le preguntó a Caperucita Roja adónde iba con tanta prisa, y ella le contó sobre su abuelita enferma y la comida que llevaba para ella. El lobo, en lugar de atacarla, le dijo que conocía un atajo que la llevaría rápidamente a la casa de su abuelita. Al principio, Caperucita Roja estaba un poco asustada, pero el lobo parecía amigable y decidió confiar en él."
-  ],
-  "end": [
-    "El lobo y Caperucita Roja caminaron juntos por el bosque, conversando y riendo. Resultó que el lobo no era tan malo como todos decían. Cuando llegaron a la casa de la abuelita, Caperucita Roja tocó suavemente la puerta y entró. Pero para su sorpresa, no encontró a su abuelita en la cama. En cambio, encontró al lobo disfrazado de abuelita. Al principio, Caperucita Roja se asustó, pero el lobo le explicó que solo quería hacerle una sorpresa. ",
-    "Caperucita Roja y el lobo se rieron juntos y disfrutaron de la comida que la niña le había llevado a su abuelita. Después de la comida, el lobo se quitó el disfraz y reveló su verdadera forma. Resulta que el lobo también tenía una abuelita y estaba enferma. Caperucita Roja compartió comida con el lobo y juntos fueron a visitar a la abuelita del lobo. A partir de ese día, Caperucita Roja y el lobo se convirtieron en grandes amigos y continuaron compartiendo aventuras en el bosque. Y así, Caperucita Roja aprendió que no todo es como parece y que a veces los verdaderos amigos pueden estar en los lugares más inesperados."
-  ],
-  "images": {
-    "introduction": {
-      "url": "https://storage.googleapis.com/cuentos-ai.appspot.com/images/d47b7c27-5311-4a1b-8f77-19dca25d5e5f.png",
-      "id": "e98632c2-be46-4fe6-add4-d7665cf926af",
-      "path_storage": "images/e98632c2-be46-4fe6-add4-d7665cf926af.png",
-      "params": {
+from domain.models.story_entity import StoryModel
+from domain.models.image3_entity import Image3Model
+from domain.models.image_entity import ImageModel
+
+def prueba_service_3_return():
+  image_1=ImageModel( "e98632c2-be46-4fe6-add4-d7665cf926af", "images/e98632c2-be46-4fe6-add4-d7665cf926af.png", {
         "prompt": " \"Once upon a time, there was a girl named Little Red Riding Hood who lived in a small house in the woods. Little Red Riding Hood was a very curious girl and was always eager to explore the world around her. One day, her mother called Little Red Riding Hood and said, 'Dear, your grandma is sick and I would like you to take this basket of food to her house.' Little Red Riding Hood was thrilled and promised her mother that she would deliver the food to her grandma without delay.\", perfect face, master piece",
         "token": "5DX0:~Vc6u?9v£<[ly]!72#JA7EG",
         "negative_prompt": "bad-hands-5, bad-image-v2-39000 , NSFW",
@@ -71,13 +57,8 @@ def test_service_3_resturn():
         "send_images": True,
         "save_images": False,
         "alwayson_scripts": {}
-      }
-    },
-    "middle": {
-      "url": "https://storage.googleapis.com/cuentos-ai.appspot.com/images/43386a9a-9e60-4164-9024-2ca0fc3fa574.png",
-      "id": "b7622d0c-fc09-4ad7-99e7-e1536c9b1fa4",
-      "path_storage": "images/b7622d0c-fc09-4ad7-99e7-e1536c9b1fa4.png",
-      "params": {
+      },"https://storage.googleapis.com/cuentos-ai.appspot.com/images/d47b7c27-5311-4a1b-8f77-19dca25d5e5f.png")
+  image_2 = ImageModel( "b7622d0c-fc09-4ad7-99e7-e1536c9b1fa4", "images/b7622d0c-fc09-4ad7-99e7-e1536c9b1fa4.png",  {
         "prompt": " \"Caperucita Roja encountered a hungry wolf while walking through the forest in her favorite red cape towards her grandmother's house. The wolf asked Caperucita Roja where she was going in such a hurry, and she told him about her sick grandmother and the food she was carrying for her. Instead of attacking her, the wolf said he knew a shortcut that would quickly take her to her grandmother's house. At first, Caperucita Roja was a little scared, but the wolf seemed friendly and she decided to trust him.\", perfect face, master piece",
         "token": "5DX0:~Vc6u?9v£<[ly]!72#JA7EG",
         "negative_prompt": "bad-hands-5, bad-image-v2-39000 , NSFW",
@@ -131,13 +112,11 @@ def test_service_3_resturn():
         "send_images": True,
         "save_images": False,
         "alwayson_scripts": {}
-      }
-    },
-    "end": {
-      "url": "https://storage.googleapis.com/cuentos-ai.appspot.com/images/fc500915-54ae-4cb7-b56b-1fbfd3c2e4b5.png",
-      "id": "747ffd8f-5a5d-4d2b-a8cb-8263692a6a9b",
-      "path_storage": "images/747ffd8f-5a5d-4d2b-a8cb-8263692a6a9b.png",
-      "params": {
+      }, "https://storage.googleapis.com/cuentos-ai.appspot.com/images/43386a9a-9e60-4164-9024-2ca0fc3fa574.png")
+  image_3 = ImageModel(
+    "747ffd8f-5a5d-4d2b-a8cb-8263692a6a9b",
+    "images/747ffd8f-5a5d-4d2b-a8cb-8263692a6a9b.png",
+     {
         "prompt": " \"In a surprising twist, the story of Little Red Riding Hood took an unexpected turn. As Little Red and the Wolf walked through the forest together, engaging in conversation and laughter, it became apparent that the Wolf wasn't as malicious as he had been portrayed. When they reached Grandma's house, Little Red gently knocked on the door and entered. To her astonishment, she didn't find her grandmother lying in bed. Instead, she discovered the Wolf disguised as Grandma. Initially frightened, Little Red listened as the Wolf explained that he only wanted to surprise her. Little Red and the Wolf shared laughter and enjoyed the food that she had brought for her grandmother. After the meal, the Wolf removed his disguise, revealing his True form. It turned out that the Wolf also had an ailing grandmother. Little Red shared her food with the Wolf, and together they visited the Wolf's grandmother. From that day onward, Little Red Riding Hood and the Wolf became great friends, continuing to embark on adventures in the forest. It was a valuable lesson for Little Red, as she learned that things are not always as they seem, and that True friends can be found in the most unexpected places.\", perfect face, master piece",
         "token": "5DX0:~Vc6u?9v£<[ly]!72#JA7EG",
         "negative_prompt": "bad-hands-5, bad-image-v2-39000 , NSFW",
@@ -191,8 +170,18 @@ def test_service_3_resturn():
         "send_images": True,
         "save_images": False,
         "alwayson_scripts": {}
-      }
-    }
-  },
-  "date": "2023-11-09T19:17:15.922427"
-}
+      },"https://storage.googleapis.com/cuentos-ai.appspot.com/images/fc500915-54ae-4cb7-b56b-1fbfd3c2e4b5.png"
+  )
+  images3= Image3Model(image_1, image_2, image_3)
+  
+  
+  stroy_base= StoryModel("Caperucita Roja y el Lobo Amigo", [
+    "Había una vez una niña llamada Caperucita Roja que vivía en una pequeña casa en el bosque. Caperucita Roja era una niña muy curiosa y siempre estaba ansiosa por explorar el mundo que la rodeaba. Un día, su madre llamó a Caperucita Roja y le dijo: \"Querida, tu abuelita está enferma y me gustaría que llevaras esta cesta de comida a su casa\". Caperucita Roja se emocionó mucho y prometió a su madre que llevaría la comida a su abuelita sin demora."
+  ],[
+    "Caperucita Roja se puso su capa roja favorita y comenzó a caminar por el bosque hacia la casa de su abuelita. Mientras caminaba, Caperucita Roja se encontró con un lobo que parecía muy hambriento. El lobo le preguntó a Caperucita Roja adónde iba con tanta prisa, y ella le contó sobre su abuelita enferma y la comida que llevaba para ella. El lobo, en lugar de atacarla, le dijo que conocía un atajo que la llevaría rápidamente a la casa de su abuelita. Al principio, Caperucita Roja estaba un poco asustada, pero el lobo parecía amigable y decidió confiar en él."
+  ],[
+    "El lobo y Caperucita Roja caminaron juntos por el bosque, conversando y riendo. Resultó que el lobo no era tan malo como todos decían. Cuando llegaron a la casa de la abuelita, Caperucita Roja tocó suavemente la puerta y entró. Pero para su sorpresa, no encontró a su abuelita en la cama. En cambio, encontró al lobo disfrazado de abuelita. Al principio, Caperucita Roja se asustó, pero el lobo le explicó que solo quería hacerle una sorpresa. ",
+    "Caperucita Roja y el lobo se rieron juntos y disfrutaron de la comida que la niña le había llevado a su abuelita. Después de la comida, el lobo se quitó el disfraz y reveló su verdadera forma. Resulta que el lobo también tenía una abuelita y estaba enferma. Caperucita Roja compartió comida con el lobo y juntos fueron a visitar a la abuelita del lobo. A partir de ese día, Caperucita Roja y el lobo se convirtieron en grandes amigos y continuaron compartiendo aventuras en el bosque. Y así, Caperucita Roja aprendió que no todo es como parece y que a veces los verdaderos amigos pueden estar en los lugares más inesperados."
+  ],"1", images3)
+  return stroy_base
+  

@@ -10,7 +10,7 @@ class ChatGpt:
         import openai
         self.__openai = openai
         self.__openai.api_key= os.getenv("OPENAI_API_KEY")
-        with open( f"./domain/static/{instruccions}.txt", mode='r', encoding='utf-8') as file:
+        with open( f"./domain/static/prompts/{instruccions}.txt", mode='r', encoding='utf-8') as file:
             self.__queue=[{"role": "system", "content": file.read()}]
         
     @property

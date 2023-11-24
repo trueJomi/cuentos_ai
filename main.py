@@ -1,12 +1,13 @@
+import aplication.questions_controller
 from fastapi import FastAPI
-import os
+import pytest
 import uvicorn
 from aplication.story_controler.stroy_controller import story_router
 from aplication.image_controller.image_controller import image_router
-from aplication.test_controller.test_controller import test_router
+from aplication.questions_controller.question_controller import question_router
+from aplication.controller_prueba.controller_prueba import test_router
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
-from tests.test_api import test_service_3_resturn
 
 load_dotenv()
 
@@ -25,8 +26,10 @@ app.add_middleware(
 
 app.include_router(story_router)
 app.include_router(image_router)
+app.include_router(question_router)
 app.include_router(test_router)
 
 
 if __name__ == "__main__":
+    pytest.main()
     uvicorn.run("main:app", reload=True , port=4200, workers=4)
