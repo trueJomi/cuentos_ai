@@ -19,7 +19,7 @@ def create_image_controller(promp:ImageQuery):
     except ValueError as e :
         raise HTTPException(
             status_code= status.HTTP_401_UNAUTHORIZED,
-            detail=f"Error: Unauthorized API"
+            detail=f"Unauthorized API"
         )
     try:
         data = image_service(promp.prompt)
@@ -27,7 +27,7 @@ def create_image_controller(promp:ImageQuery):
     except Exception as e :
         raise HTTPException(
             status_code= status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Error: {e}"
+            detail=f"{e}"
         )
         
 @image_router.post(
@@ -41,7 +41,7 @@ async def create_image_3_story_controller(body:ImageGenerate3Input):
     except ValueError as e :
         raise HTTPException(
             status_code= status.HTTP_401_UNAUTHORIZED,
-            detail=f"Error: Unauthorized API"
+            detail=f"Unauthorized API"
         )
     try:
         data = await generate_3_images_service(body.id, uid)
@@ -49,5 +49,5 @@ async def create_image_3_story_controller(body:ImageGenerate3Input):
     except Exception as e :
         raise HTTPException(
             status_code= status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Error: {e}"
+            detail=f"{e}"
         )

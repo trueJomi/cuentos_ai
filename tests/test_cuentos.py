@@ -42,12 +42,24 @@ def test_result_tittle_regex():
 
 
 def test_decript_questions():
-    data= "- ¿Quién es el personaje principal de la historia?\n- ¿Cuál es la tarea que le encargan a Caperucita Roja?\n- ¿Qué disfraz utiliza el lobo para engañar a Caperucita Roja?\n- ¿Quiénes acuden en ayuda de Caperucita Roja cuando ella grita por ayuda?"
+    data= "- ¿Quién es el personaje principal de la historia?\n* respuesta\n- ¿Cuál es la tarea que le encargan a Caperucita Roja?\n* respuesta\n- ¿Qué disfraz utiliza el lobo para engañar a Caperucita Roja?\n* respuesta\n- ¿Quiénes acuden en ayuda de Caperucita Roja cuando ella grita por ayuda?\n* respuesta"
     assert decript_questions(data) == [
-        "¿Quién es el personaje principal de la historia?",
-        "¿Cuál es la tarea que le encargan a Caperucita Roja?",
-        "¿Qué disfraz utiliza el lobo para engañar a Caperucita Roja?",
-        "¿Quiénes acuden en ayuda de Caperucita Roja cuando ella grita por ayuda?"
+        {
+            "question":"¿Quién es el personaje principal de la historia?",
+            "response":"respuesta"
+        },
+        {
+            "question":"¿Cuál es la tarea que le encargan a Caperucita Roja?",
+            "response":"respuesta"
+        },
+        {
+            "question":"¿Qué disfraz utiliza el lobo para engañar a Caperucita Roja?",
+            "response":"respuesta"
+        },
+        {
+            "question":"¿Quiénes acuden en ayuda de Caperucita Roja cuando ella grita por ayuda?",
+            "response":"respuesta"
+        }
     ]
 
 # def test_data():

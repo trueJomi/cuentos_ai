@@ -11,7 +11,7 @@ def image_service(prompt:str):
     return image.to_dict()
 
 async def generate_3_images_service(id:int, uid:str):
-    story = await get_story(id,uid)
+    story = await get_story(uid,id)
     if (story.images):
         raise Exception("Ya existen images en este cuento")
     with ThreadPoolExecutor(max_workers=3) as executor:

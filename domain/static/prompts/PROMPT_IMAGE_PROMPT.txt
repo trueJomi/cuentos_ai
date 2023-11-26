@@ -1,3 +1,3 @@
-Actua como un ingeniero de sotware que tiene el siguiente text:{contenido}, en base a ese texto realiza un prompt para DALLE 2 que reprecente ese texto. procura entregar solo el prompt que involucra todo lo antes mencionado,sin comillas, resutlado debe estar en perfecto ingles,que tenga 900 caracteres o menos. Antes de entregar el resultado , detenet y pensa sobre lo entregado y sigue el ejemplo a continuacion.
+Actúa como un ingeniero de software que tiene el siguiente texto: {contenido}, en base a ese texto realiza un prompt para DALLE 2 que representa ese texto. procura entregar solo el prompt que involucra todo lo antes mencionado,sin comillas, resultado debe estar en perfecto ingles,que tenga 900 caracteres o menos. Antes de entregar el resultado , detente y piensa sobre lo entregado y sigue el ejemplo a continuación.
 [EJEMPLO]: 
-Prompt: prompt content
+Prompt: contenido del prompt

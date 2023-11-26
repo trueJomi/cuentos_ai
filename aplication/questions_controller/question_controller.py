@@ -16,7 +16,7 @@ async def create_story_question_literal(body:QuestionInput):
     except Exception as e :
         raise HTTPException(
             status_code= status.HTTP_401_UNAUTHORIZED,
-            detail=f"Error: Unauthorized API"
+            detail=f"Unauthorized API"
         )
     try:
         data = await generate_question_service(body.type, body.paragrafth, body.cantidad, uid, body.id)
@@ -24,6 +24,6 @@ async def create_story_question_literal(body:QuestionInput):
     except Exception as e :
         raise HTTPException(
             status_code= status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Error: {e}"
+            detail=f"{e}"
         )
         

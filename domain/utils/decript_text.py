@@ -43,7 +43,6 @@ def concat_text_array(text_array:list[str]) -> str:
 
 def decript_prompt( text:str):
     parts=text.split("Prompt:")
-    # print(text)
     part_prompt= parts[1]
     return part_prompt
 

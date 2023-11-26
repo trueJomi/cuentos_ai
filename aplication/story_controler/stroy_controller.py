@@ -18,7 +18,7 @@ async def create_story_controller(promp:PrompQuery):
     except Exception as e :
         raise HTTPException(
             status_code= status.HTTP_401_UNAUTHORIZED,
-            detail=f"Error: Unauthorized API"
+            detail=f"Unauthorized API"
         )
     try:
         data = await create_story_service(promp.prompt, uid)
@@ -28,7 +28,7 @@ async def create_story_controller(promp:PrompQuery):
     except Exception as e :
         raise HTTPException(
             status_code= status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Error: {e}"
+            detail=f"{e}"
         )
 
 @story_router.post(
@@ -42,7 +42,7 @@ async def create_story_complete_controller(promp:PrompQuery):
     except Exception as e :
         raise HTTPException(
             status_code= status.HTTP_401_UNAUTHORIZED,
-            detail=f"Error: Unauthorized API"
+            detail=f"Unauthorized API"
         )
     try:
         data = await create_story_complete_service(promp.prompt, uid)
@@ -52,6 +52,6 @@ async def create_story_complete_controller(promp:PrompQuery):
     except Exception as e :
         raise HTTPException(
             status_code= status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Error: {e}"
+            detail=f"{e}"
         )
     

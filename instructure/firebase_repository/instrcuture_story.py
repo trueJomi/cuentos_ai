@@ -17,10 +17,12 @@ async def get_story(id:str, uid:str) -> StoryModel:
     data = await get_data(id,"Story",uid)
     story = StoryModel(**data)
     story.images = None
-    if(data["images"]):
+    try:
         intro_image = ImageModel(**data["images"]["introduction"])
         middle_image = ImageModel(**data["images"]["middle"])
         end_image = ImageModel(**data["images"]["end"])
         images = Image3Model(intro_image,middle_image,end_image)
         story.images = images
+    except Exception as e:
+        return story
     return story

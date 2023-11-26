@@ -1,5 +1,5 @@
 from pydantic import BaseModel 
 
 class ImageGenerate3Input(BaseModel):
-    id: int
+    id: str
     id_token: str

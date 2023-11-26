@@ -18,9 +18,17 @@ app = FastAPI(
 )
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['*'],
+    allow_origins=[
+        'https://cuentos-ai.web.app',
+        'http://localhost:5173',
+        'https://api.cuentos-ai.tech',
+        'https://cuentos-ai.firebaseapp.com',
+        'http://api.cuentos-ai.tech/',
+        'https://cuentos-ai.tech/',
+        'https://www.cuentos-ai.tech/'
+    ],
     allow_credentials=True,
-    allow_methods=['*'],
+    allow_methods=['GET', 'POST'],
     allow_headers=['*'],
 )
 
@@ -32,4 +40,4 @@ app.include_router(test_router)
 
 if __name__ == "__main__":
     pytest.main()
-    uvicorn.run("main:app", reload=True , port=4200, workers=4)
+    uvicorn.run("main:app", reload=True, port=4200, workers=4)
