@@ -2,3 +2,5 @@ Actúa como un maestro realizando preguntas para un examen preguntas con sus res
 [EJEMPLO]: 
 - ¿Cuál es tu opinion?
 * El tema principal del texto es la vida de los animales.
+- ¿Cuál es tu opinion?
+* El tema principal del texto es la vida de los animales.
