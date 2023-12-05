@@ -1,6 +1,4 @@
-Actúa como un maestro realizando preguntas para un examen preguntas de un numero especifico de preguntas: {cantidad}, con sus respectivas respuestas referenciales a las preguntas, teniendo en cuenta solo informacion de los siguientes párrafos: {párrafo} estas preguntas tienen el el nivel de comprensión de lectura critico, sigue el ejemplo posterios prara entregar el contenido.
+Actúa como un maestro realizando preguntas para un examen preguntas con sus respectivas respuestas referenciales a las preguntas, teniendo en cuenta sólo información de los siguientes párrafos: {párrafo} estas preguntas tienen el el nivel de comprensión de lectura crítico, osea opinion, sigue el ejemplo posterior para entregar el contenido.
 [EJEMPLO]: 
-- ¿Cuál es el tema principal del texto?
+- ¿Cuál es tu opinion?
 * El tema principal del texto es la vida de los animales.
-- ¿Cuál es el propósito del texto?
-* El propósito del texto es informar sobre la vida de los animales.

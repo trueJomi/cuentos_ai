@@ -9,6 +9,7 @@ class StoryModel():
       middle: list[str],
       end: list[str],
       id:str,
+      input:str=None,
       images:Image3Model=None,
       date:datetime=None
     ):
@@ -17,6 +18,7 @@ class StoryModel():
         self.introduction = introduction
         self.middle = middle
         self.end = end
+        self.input = input
         if date:
             self.date = date
         else:
@@ -32,6 +34,7 @@ class StoryModel():
             "introduction": self.introduction,
             "middle": self.middle,
             "end": self.end,
+            "input": self.input,
             "date":self.date
         }
         if self.images is not None:

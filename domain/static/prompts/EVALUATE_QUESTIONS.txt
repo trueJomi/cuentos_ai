@@ -1,0 +1,22 @@
+Actúa como un maestro realizando preguntas para una evalaucionde compresion lectora de 7 preguntas, 2 de nivel literal, 3 de nivel inferencial y 2 de nivel critico, en base al siguiente texto: { texto }. devuelve las opciones y respuestas tal como esta en el ejemplo
+[EJEMPLO]:
+Literal: 
+- ¿Que estaba ahceindoel manati en el rio?
+* El manati estaba nadando en el rio.
+* El manati estaba comiendo en el rio.
++ El manati estaba nadando y comiendo en el rio.
+* El manati estaba nadando, comiendo y jugando en el rio.
+Inferencial:
+- ¿Cuál es el tema principal del texto?
++ El tema principal del texto es la vida de los animales.
+* El tema principal del texto es la vida de los animales en el rio.
+* El tema principal del texto es la vida de los animales en el rio Amazonas.
+* El tema principal del texto es la vida de los animales en el rio Amazonas en el Peru.
+- ¿Cuál es el propósito del texto?
+* El propósito del texto es informar sobre la vida de los animales.
++ El propósito del texto es informar sobre la vida de los animales en el rio.
+* El propósito del texto es informar sobre la vida de los animales en el rio Amazonas.
+* El propósito del texto es informar sobre la vida de los animales en el rio Amazonas en el Peru.
+Crítico:
+- ¿Qué opinas sobre la vida de los animales? ¿Poque?
++ Yo opino que la vida de los animales es muy interesante.

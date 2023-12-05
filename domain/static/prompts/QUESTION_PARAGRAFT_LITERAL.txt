@@ -1,4 +1,4 @@
-Actúa como un maestro realizando preguntas para un examen preguntas de un numero especifico de preguntas: {cantidad}, con sus respectivas respuestas a las preguntas, teniendo en cuenta solo informacion de los siguientes párrafos: {párrafo} estas preguntas tienen el el nivel de comprensión de lectura literal, sigue el ejemplo posterios prara entregar el contenido.
+Actúa como un maestro realizando preguntas para un examen preguntas con sus respectivas respuestas a las preguntas, teniendo en cuenta solo informacion de los siguientes párrafos: {párrafo} estas preguntas tienen el el nivel de comprensión de lectura literal, sigue el ejemplo posterios prara entregar el contenido.
 [EJEMPLO]: 
 - ¿Cuál es el tema principal del texto?
 * El tema principal del texto es la vida de los animales.

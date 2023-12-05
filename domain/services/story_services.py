@@ -2,12 +2,13 @@ from domain.utils.chat_gpt import ChatGpt
 from domain.repositorys import save_story
 from domain.utils.decript_text import decript_text_introduccion, decript_text_middle, decript_text_end, decript_text_tittle
 from domain.models.story_entity import StoryModel
-from instructure.images_respository.images_generate import send_data_image_3
+from instructure.images_respository.images_generate import send_data_image_1, send_data_image_3
 from domain.repositorys import save_story_complete
 from domain.models.image_entity_input import SendImageInputText
 from domain.utils.create_prmpt_image import create_prompt
 from concurrent.futures import ThreadPoolExecutor
 import uuid
+from aplication.utils.validate_errors import validate_errors
 
 
 def create_cuento_with_pompt(entrada:str)-> StoryModel:
@@ -18,7 +19,7 @@ def create_cuento_with_pompt(entrada:str)-> StoryModel:
     list_middle = decript_text_middle(text_raw)
     list_end = decript_text_end(text_raw)
     uid = str(uuid.uuid4())
-    data = StoryModel(title,list_introduction,list_middle,list_end,uid)
+    data = StoryModel(title,list_introduction,list_middle,list_end,uid, entrada)
     return data
 
 async def create_story_service(entrada:str, uid:str)-> StoryModel:

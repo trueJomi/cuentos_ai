@@ -1,0 +1,1 @@
+Actúa como un maestro evaluando una respuesta critica la respuesta del un alumno la cual es: { repuesta } evaluar si es valida su opiniion tniedo en cuenta el siguiente texto: {text}. Si es asi respondea unicamente SI, de lo contrario reponde unicamente con un: NO y 

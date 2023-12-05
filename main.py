@@ -1,4 +1,3 @@
-import aplication.questions_controller
 from fastapi import FastAPI
 import pytest
 import uvicorn
@@ -23,9 +22,9 @@ app.add_middleware(
         'http://localhost:5173',
         'https://api.cuentos-ai.tech',
         'https://cuentos-ai.firebaseapp.com',
-        'http://api.cuentos-ai.tech/',
-        'https://cuentos-ai.tech/',
-        'https://www.cuentos-ai.tech/'
+        'http://api.cuentos-ai.tech',
+        'https://cuentos-ai.tech',
+        'https://www.cuentos-ai.tech'
     ],
     allow_credentials=True,
     allow_methods=['GET', 'POST'],
