@@ -2,13 +2,13 @@ from fastapi import status, HTTPException
 
 
 from aplication.controller_prueba import test_router
-from aplication.enpoints_models.story_complete_result import StoryComplete
 from tests.static.data import prueba_service_3_return
+from aplication.enpoints_models.story_result import Story
 
 @test_router.post(
     "/story/all",
     status_code = status.HTTP_201_CREATED,
-    response_model=StoryComplete
+    response_model=Story
     )
 def test_create_story_complete_controller():
     try:
@@ -23,7 +23,7 @@ def test_create_story_complete_controller():
 @test_router.post(
     "/question/all",
     status_code = status.HTTP_201_CREATED,
-    response_model=StoryComplete
+    response_model=Story
     )
 def test_create_story_complete_controller():
     try:

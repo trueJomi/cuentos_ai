@@ -1,4 +1,5 @@
 import os
+import re
 import requests
 from domain.models.image_entity_send import SendQueryIamgeEntity
 from domain.models.image_entity_input import SendImageInputText
@@ -11,7 +12,7 @@ API_URL = os.getenv("URL_API")
 
 def send_data_image_1(message_api:SendQueryIamgeEntity) -> ImageModel:
     response =requests.post(
-        f"{API_URL}/getImage",
+        f"{API_URL}/getImage/",
         headers={
             'Content-Type': 'application/json',
         },
@@ -24,7 +25,7 @@ def send_data_image_1(message_api:SendQueryIamgeEntity) -> ImageModel:
 
 def send_data_image_3(message_api:SendImageInputText) -> Image3Model:
     response =requests.post(
-        f"{API_URL}/get3Images",
+        f"{API_URL}/get3Images/",
         headers={
             'Content-Type': 'application/json',
         },
@@ -51,7 +52,7 @@ def generate_dalle_image(prompt:str):
 
 def save_image_dalle(meesage_api:SendUrlInput):
     response = requests.post(
-        f"{API_URL}/saveImage",
+        f"{API_URL}/saveImage/",
         headers={
             'Content-Type': 'application/json',
         },
@@ -59,3 +60,14 @@ def save_image_dalle(meesage_api:SendUrlInput):
     if (response.status_code >= 400):
         raise Exception(response.json()["detail"])
     return response.json()
+
+def exist_url():
+    response = requests.get(
+        f'{API_URL}/exist/',
+    )
+    if (response.status_code >= 400):
+        raise Exception(response.json()["detail"])
+    if response.json()["message"]== "ok":
+        return True
+    else:
+        return False

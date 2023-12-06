@@ -1,13 +1,13 @@
 from pydantic import BaseModel, Field 
-from typing import Optional
 from datetime import datetime
 
-class StoryComplete(BaseModel):
-  id: Optional[str] = Field("opcional: depende si se crea o se pide")
-  title: str= Field("Titulo del cuento")
-  introduction: list[str] = Field(["primer parrafo de la introduccion","segundo parrafo de la introduccion"])
-  middle: list[str] = Field(["primer parrafo del nudo","segundo parrafo del nudo"])
-  images: dict = Field({
+class Story(BaseModel):
+  id: str = Field( default=None, examples=["opcional: depende si se crea o se pide"] )
+  title: str= Field(default=None, examples=["Titulo del cuento"])
+  introduction: list[str] = Field(default=None, examples=[["primer parrafo de la introduccion","segundo parrafo de la introduccion"]])
+  middle: list[str] = Field(default=None, examples=[["primer parrafo del nudo","segundo parrafo del nudo"]])
+  images: dict = Field(default=None, examples=[
+      {
         "introduction":{
             "id": "id de imagen",
             "path_storage": "direccion del storage",
@@ -26,6 +26,7 @@ class StoryComplete(BaseModel):
             "path_storage": "direccion del storage",
             "params": "paramtros que tiene l imagen"
         }
-  })
-  end: list[str] = Field(["primer parrafo del desenlace","segundo parrafo del desenlace"])
-  date:datetime  = datetime.now()
+    }
+  ])
+  end: list[str] = Field(default=None, examples=[["primer parrafo del desenlace","segundo parrafo del desenlace"]])
+  date:datetime  = Field(default=datetime.now(), examples=["2021-08-01T00:00:00.000Z"])

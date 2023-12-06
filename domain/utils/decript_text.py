@@ -1,5 +1,6 @@
 import re
 from domain.models.question_evaluate import QuestionEvaluateModel
+from domain.models.question_entity import QuestionModel
 
 def decript_text_introduccion(text:str) -> list[str]:
     introduction_raw = re.search(r'Inicio:(.*?)Nudo:', text, re.DOTALL)
@@ -60,47 +61,21 @@ def decript_questions(text:str) -> list[dict]:
         })
     return questions
 
-def decript_evaluate(text:str) -> list[QuestionEvaluateModel]:
-    total_question = []
+def decript_evaluate(text:str):
     literal_question_match= re.search(r'Literal:\s*(.*)Inferencial:',text,re.DOTALL)
     contenido_literal =literal_question_match.group(1)
-    raw_question_literal = re.search(r'- \s*(.*)-(.*)', contenido_literal, re.DOTALL)
-    for group_match in range(2):
-        question_raw = raw_question_literal.group(group_match+1)
-        parts =question_raw.split('\n')
-        question= parts[0]
-        opctions = [i[2:] for i in parts[1:]]
-        response = 0
-        for opction, idx in zip(parts,range(len(parts))):
-            if '+' in opction:
-                response = idx
-                break
-        question_class = QuestionEvaluateModel(question,response,"literal",opctions)
-        total_question.append(question_class)
+    liteal_questions = decript_questions(contenido_literal)
     inferencial_question_match= re.search(r'Inferencial:\s*(.*)Crítico:',text,re.DOTALL)
     contenido_inferencial =inferencial_question_match.group(1)
-    raw_question_inferencial = re.search(r'- \s*(.*)-(.*)-(.*)', contenido_inferencial, re.DOTALL)
-    for group_match in range(3):
-        question_raw = raw_question_inferencial.group(group_match+1)
-        parts =question_raw.split('\n')
-        question= parts[0]
-        opctions = [i[2:] for i in parts[1:]]
-        response = 0
-        for opction, idx in zip(parts,range(len(parts))):
-            if '+' in opction:
-                response = idx
-                break
-        question_class = QuestionEvaluateModel(question,response,"inferencial",opctions)
-        total_question.append(question_class)
+    inferencial_questions = decript_questions(contenido_inferencial)
     critico_question_match= re.search(r'Crítico:\s*(.*)',text,re.DOTALL)
     contenido_critico =critico_question_match.group(1)
-    raw_question_critico = re.findall(r'- .*',contenido_critico)
-    for question_raw in raw_question_critico:
-        question =question_raw[2:]
-        response = 0
-        question_class = QuestionEvaluateModel(question,response,"critico")
-        total_question.append(question_class)
-    return total_question
+    critico_questions = decript_questions(contenido_critico)
+    return {
+        "liteal":liteal_questions,
+        "inferencial":inferencial_questions,
+        "critico":critico_questions
+    }
         
         
     

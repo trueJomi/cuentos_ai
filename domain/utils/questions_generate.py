@@ -5,13 +5,13 @@ from domain.models.question_entity import QuestionModel
 def generate_question( paragrafts:list[str], cantidad:int, type:str, reference:list[int]) ->list[QuestionModel]:
     if (type == 'literal'):
         chat = ChatGpt("QUESTION_PARAGRAFT_LITERAL")
-        response = chat.hadleMsgChat(f'parrafo={paragrafts}. deveuveme las {cantidad} preguntas y respuestas')
+        response = chat.hadleMsgChat(f'parrafo={paragrafts}. entregame las {cantidad} preguntas y respuestas')
     elif (type == 'inferencial'):
         chat = ChatGpt("QUESTION_PARAGRAFT_INFERENCIAL")
-        response = chat.hadleMsgChat(f'parrafo={paragrafts}. deveuveme las {cantidad} preguntas y respuestas')
+        response = chat.hadleMsgChat(f'parrafo={paragrafts}. entregame las {cantidad} preguntas y respuestas')
     elif (type == 'critico'):
         chat = ChatGpt("QUESTION_PARAGRAFT_CRITICO")
-        response = chat.hadleMsgChat(f'parrafo={paragrafts}. deveuveme las {cantidad} preguntas y respuestas')
+        response = chat.hadleMsgChat(f'parrafo={paragrafts}. entregame las {cantidad} preguntas y respuestas')
     else:
         raise Exception("type not valid")
     print(response)
@@ -32,13 +32,18 @@ def validate_type(type:str):
     else:
         raise Exception("type not valid")
     
-def generate_evaluation_question(cuento:list[str]):
+def generate_evaluation_question(cuento:list[str]) ->list[QuestionModel]:
     chat = ChatGpt("EVALUATE_QUESTIONS")
-    response = chat.hadleMsgChat(f'text={cuento}. deveuveme las preguntas y opciones de las respuestas')
+    response = chat.hadleMsgChat(f'texto={cuento}. entregame las 7 preguntas y respuestas')
     questions= decript_evaluate(response)
-    return questions
-
-def commpare_text_response(response:str, correct_response:str):
-    chat = ChatGpt("COMPARE_RESPONSE")
-    respuesta = chat.hadleMsgChat(f'repuesta={response} respuestaCorrecta={correct_response}. ')
-    return respuesta
+    total_questions =[]
+    for question_literal in questions["liteal"]:
+        temp_question = QuestionModel(list(range(len(cuento))), question_literal["question"], question_literal["response"], "literal")
+        total_questions.append(temp_question)
+    for question_inferencial in questions["inferencial"]:
+        temp_question = QuestionModel(list(range(len(cuento))), question_inferencial["question"], question_inferencial["response"], "inferencial")
+        total_questions.append(temp_question)
+    for question_critico in questions["critico"]:
+        temp_question = QuestionModel(list(range(len(cuento))), question_critico["question"], question_critico["response"], "critico")
+        total_questions.append(temp_question)
+    return total_questions

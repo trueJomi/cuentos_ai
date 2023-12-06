@@ -1,5 +1,5 @@
 class QuestionModel:
-    def __init__(self, reference:list[str] ,question:str , response:str, type:str, id: int=None):
+    def __init__(self, reference:list[int] ,question:str , response:str, type:str, id: int=None):
         self.id = id
         self.reference = reference
         self.question = question

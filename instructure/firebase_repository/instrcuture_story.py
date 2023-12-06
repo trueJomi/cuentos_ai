@@ -8,11 +8,6 @@ async def save_story(data:StoryModel, id:str, uid:str):
     await save_data(id,"Story",doc_dict,uid)
     return data
 
-async def save_story_complete(data:StoryModel, id:str, uid:str):
-    doc_dict = data.to_dict()
-    await save_data(id,"Story",doc_dict,uid)
-    return data
-
 async def get_story(id:str, uid:str) -> StoryModel:
     data = await get_data(id,"Story",uid)
     story = StoryModel(**data)
