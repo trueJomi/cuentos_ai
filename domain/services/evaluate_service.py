@@ -16,6 +16,8 @@ def create_evaluation_story_complete_with_prompt(prompt:str):
     send_data_image= SendQueryIamgeEntity(image_prompt)
     if exist_url():
         image = send_data_image_1(send_data_image)
+    else:
+        image = None
     questions = generate_evaluation_question(story)
     class_evaluation = EvaluationModel(cuento.title, cuento.introduction, cuento.middle, cuento.end, cuento.id, prompt , image)
     return {

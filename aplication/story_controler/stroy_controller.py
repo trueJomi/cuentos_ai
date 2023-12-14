@@ -36,21 +36,21 @@ async def create_story_controller(promp:PrompQuery):
     response_model= Story
     )
 async def create_story_evaluation( body:PrompQuery ):
-    # try:
-    uid = validate_id_token(body.id_token)
-    # except Exception as e :
-    #      raise HTTPException(
-    #           status_code= status.HTTP_401_UNAUTHORIZED,
-    #           detail=f"Unauthorized API"
-    #      )
-    # try:
-    data = await create_evaluation_story_complete_service(body.prompt, uid)
-    dict_data = data.to_dict()
-    dict_data["id"] = data.id
-    return dict_data
-    # except Exception as e :
-    #     raise HTTPException(
-    #         status_code= status.HTTP_500_INTERNAL_SERVER_ERROR,
-    #         detail=f"{e}"
-    #     ) 
+    try:
+        uid = validate_id_token(body.id_token)
+    except Exception as e :
+         raise HTTPException(
+              status_code= status.HTTP_401_UNAUTHORIZED,
+              detail=f"Unauthorized API"
+         )
+    try:
+        data = await create_evaluation_story_complete_service(body.prompt, uid)
+        dict_data = data.to_dict()
+        dict_data["id"] = data.id
+        return dict_data
+    except Exception as e :
+        raise HTTPException(
+            status_code= status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"{e}"
+        ) 
     
