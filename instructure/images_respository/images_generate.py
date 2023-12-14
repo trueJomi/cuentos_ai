@@ -66,7 +66,7 @@ def exist_url():
         f'{API_URL}/exist/',
     )
     if (response.status_code >= 400):
-        raise Exception(response.json()["detail"])
+        return False
     if response.json()["message"]== "ok":
         return True
     else:

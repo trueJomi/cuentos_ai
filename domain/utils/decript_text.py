@@ -1,6 +1,4 @@
 import re
-from domain.models.question_evaluate import QuestionEvaluateModel
-from domain.models.question_entity import QuestionModel
 
 def decript_text_introduccion(text:str) -> list[str]:
     introduction_raw = re.search(r'Inicio:(.*?)Nudo:', text, re.DOTALL)

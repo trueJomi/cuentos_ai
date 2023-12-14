@@ -6,17 +6,16 @@ from instructure.firebase_repository.instructure_evaluate import save_evaluation
 from domain.utils.questions_generate import generate_evaluation_question
 from instructure.firebase_repository.instructure_question import save_question
 from domain.models.evaluation_entity import EvaluationModel
+from domain.models.image_entity_send import SendQueryIamgeEntity
 
 
 def create_evaluation_story_complete_with_prompt(prompt:str):
     cuento = create_cuento_with_pompt(prompt)
     story = [*cuento.introduction,*cuento.middle, *cuento.end]
     image_prompt = create_prompt(story)
-    try:
-        exist_url()
-        image = send_data_image_1(image_prompt)
-    except Exception as e:
-        image = None
+    send_data_image= SendQueryIamgeEntity(image_prompt)
+    if exist_url():
+        image = send_data_image_1(send_data_image)
     questions = generate_evaluation_question(story)
     class_evaluation = EvaluationModel(cuento.title, cuento.introduction, cuento.middle, cuento.end, cuento.id, prompt , image)
     return {
